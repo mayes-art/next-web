@@ -38,8 +38,8 @@ export default function Home() {
       </div>
       <div className="h-1/3">
       <div className="container mx-auto">
-        <div className="footer flex p-8 text-right">
-          Mayes Art 2024 By Jun.
+        <div className="flex p-8 text-right">
+          <div className="w-full text-right">Mayes Art 2024 By Jun.</div>
         </div>
       </div>
       </div>
