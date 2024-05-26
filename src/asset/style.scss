@@ -1,0 +1,12 @@
+.monsterBody {
+    path {
+       fill: #000;
+     }
+   &:hover {
+     cursor: pointer;
+
+     path {
+       fill: #666;
+     }
+   }
+ }
