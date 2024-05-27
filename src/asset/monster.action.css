@@ -36,6 +36,6 @@
   }
 
   .move-around {
-    animation: moveAnimation 7000ms ease-in-out infinite;
+    animation: moveAnimation 7000ms infinite;
   }
   
