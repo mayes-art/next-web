@@ -23,7 +23,7 @@ export default function Home() {
       <div className="h-2/3 bg-no-repeat relative" >
         <div className="container mx-auto">
             <div className="flex justify-center p-4">
-              <div className="w-[70%] h-[70%] sm:w-[50%] sm:h-[50%] move-around absolute top-[10%]">
+              <div className="w-[40%] h-[40%] sm:w-[50%] sm:h-[50%] move-around absolute top-[10%]">
                 <Monster />
               </div>
               

@@ -1,24 +1,31 @@
 @keyframes moveAnimation {
   0% {
-      left: 0%;
-      transform: scaleX(1);
+    left: 0%;
+    transform: scaleX(1);
   }
   25% {
       left: 25%;
+      transform: scaleX(1);
   }
   50% {
-      left: 75%;
-      transform: scaleX(-1);
+      left: 60%;
+      transform: scaleX(1);
   }
   75% {
       left: 25%;
+      transform: scaleX(-1);
+  }
+  90% {
+      left: 0%;
+      transform: scaleX(-1);
   }
   100% {
-      left: 0%;
-      transform: scaleX(1);
+    left: 0%;
+    transform: scaleX(1);
   }
+  
 }
 
 .move-around {
-  animation: moveAnimation 7000ms infinite;
+  animation: moveAnimation 10000ms infinite;
 }
