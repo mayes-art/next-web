@@ -22,7 +22,7 @@ export default function Home() {
       <div className="h-[944px] bg-no-repeat relative bg-cover" style={{backgroundImage: "url(/img/content.png)"}} >
         <div className="container mx-auto">
             <div className="flex justify-center p-4">
-              <div className="w-[70%] h-[70%] sm:w-[45%] sm:h-[45%] move-around absolute top-[10%]">
+              <div className="w-[40%] h-[40%] sm:w-[45%] sm:h-[45%] move-around absolute top-[10%]">
                 <Monster />
               </div>
               
@@ -65,11 +65,11 @@ export default function Home() {
       </div>
       
       <div className="h-[250px]">
-        <div className="container mx-auto absolute left-[320px]">
+        <div className="container mx-auto absolute sm:left-[320px] p-6">
           <div className="flex flex-col p-2">
-            <div className=" w-[800px] h-[225px] border-2 rounded border-solid border-slate-300 bg-black">
-              <div className="p-2"><Image src="/img/Mailbox2.png" width="60" height="60"/></div>
-              <div className="p-2"><Image src="/img/Line.png" width="60" height="60"/></div>
+            <div className="w-10% h-10% sm:w-[800px] sm:h-[225px] border-2 rounded border-solid border-slate-300 bg-black">
+              <div className="p-2"><Image src="/img/Mailbox2.png" width="60" height="60" alt="mail"/></div>
+              <div className="p-2"><Image src="/img/Line.png" width="60" height="60" alt="line"/></div>
             </div>
           </div>
         </div>
