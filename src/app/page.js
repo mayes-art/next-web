@@ -1,6 +1,7 @@
 import MenuArrow from "@/components/MenuArrow";
 import { Monster } from '@/components/Monster';
 import styles from "../asset/style.scss";
+import Image from "next/image";
 // import '../asset/monster.action.css';
 
 export default function Home() {
@@ -13,17 +14,15 @@ export default function Home() {
     <>
 
     <div className="flex flex-col h-dvh">
-      <div className="h-40 bg-no-repeat bg-cover" style={{backgroundImage: "url(/img/banner.png)"}}>
+      <div className="h-[80px] bg-no-repeat bg-cover" style={{backgroundImage: "url(/img/banner.png)"}}>
         <div className="container mx-auto relative">
-
             <div className="text-blue-500 text-[48px]">Mayes Art</div>
-
         </div>
       </div>
-      <div className="h-2/3 bg-no-repeat relative" >
+      <div className="h-[944px] bg-no-repeat relative bg-cover" style={{backgroundImage: "url(/img/content.png)"}} >
         <div className="container mx-auto">
             <div className="flex justify-center p-4">
-              <div className="w-[40%] h-[40%] sm:w-[50%] sm:h-[50%] move-around absolute top-[10%]">
+              <div className="w-[70%] h-[70%] sm:w-[45%] sm:h-[45%] move-around absolute top-[10%]">
                 <Monster />
               </div>
               
@@ -64,7 +63,19 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="h-[-20]">
+      
+      <div className="h-[250px]">
+        <div className="container mx-auto absolute left-[320px]">
+          <div className="flex flex-col p-2">
+            <div className=" w-[800px] h-[225px] border-2 rounded border-solid border-slate-300 bg-black">
+              <div className="p-2"><Image src="/img/Mailbox2.png" width="60" height="60"/></div>
+              <div className="p-2"><Image src="/img/Line.png" width="60" height="60"/></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div className="h-5">
         <div className="container mx-auto">
           <div className="flex p-8">
             <div className="w-full text-right">Mayes Art 2024 By Jun.</div>
