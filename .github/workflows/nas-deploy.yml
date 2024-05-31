@@ -1,0 +1,81 @@
+name: server deploy
+run-name: ${{ github.actor }} is deploy 🚀
+on:
+  push:
+    branches:
+      - main
+jobs:
+  GCP-Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+    #   - id: 'auth'
+    #     uses: 'google-github-actions/auth@v2'
+    #     with:
+    #       credentials_json: '${{ secrets.GCE_SA_KEY }}'
+      
+    #   - name: 'Set up Cloud SDK'
+    #     uses: 'google-github-actions/setup-gcloud@v2'
+    #     with:
+    #       version: '>= 363.0.0'
+
+    #   - name: 'Download ENV file'
+    #     run: 'gsutil cp ${{ secrets.DEV_ENV_FILE }} ./.env'
+
+      - name: Deploy to Server
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+          SSH_CMD_ARGS: "-o StrictHostKeyChecking=no"
+          ARGS: "-rlgoDzvc -i --delete"
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: ${{ secrets.REMOTE_TARGET }}
+          EXCLUDE: ".editorconfig, .gitattributes, .gitignore, /node_modules/, /vendor/, /.git/, /.github/"
+          SCRIPT_AFTER: |
+            ls -al ~/next-web
+            docker ps -a
+
+#      - name: GCP Deploy
+#        # You may pin to the exact commit or the version.
+#        # uses: ngocquyhoang/laravel-deploy@44ec6bf06ce9f68f68f614033fb57a8851f60b53
+#        uses: ngocquyhoang/laravel-deploy@laravel-custom-port
+#        with:
+#          user: ${{ secrets.DEV_ERP_API_USER }}
+#          host: ${{ secrets.DEV_ERP_API_HOST }}
+#          path: ~/app
+#          owner: ${{ github.workspace }}
+#        env:
+#          DEPLOY_KEY: ${{ secrets.DEV_SSH_KEY }}
+
+
+
+#      - name: GCP deploy
+#        uses: appleboy/ssh-action@v0.1.10
+#        env:
+#          NoStructHostChecking: "-o StrictHostKeyChecking=no"
+#        with:
+#          host: ${{ secrets.DEV_ERP_API_HOST }}
+#          username: ${{ secrets.DEV_ERP_API_USER }}
+#          key: ${{ secrets.DEV_SSH_KEY }}
+#          envs: NoStructHostChecking
+#          script: |
+#            whoami
+#            cd ~/app
+#            ls -al
+#      - name: Check out repository code
+#        uses: actions/checkout@v4
+#      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+#      - name: List files in the repository
+#        run: |
+#          ls ${{ github.workspace }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+    #   - name: Slack Notify
+    #     uses: rtCamp/action-slack-notify@v2.2.1
+    #     env:
+    #       SLACK_MESSAGE: '✅ :nextjs: ⮕ :gcp: [${{ github.repository }}] Deploy success! :catjam::catjam:'
+    #       SLACK_TITLE: Deploy to GCP
+    #       SLACK_WEBHOOK: ${{ secrets.SLACK_DEV_WEBHOOK }}
