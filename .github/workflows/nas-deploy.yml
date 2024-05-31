@@ -34,7 +34,7 @@ jobs:
           REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
-          EXCLUDE: ".editorconfig, .gitattributes, .gitignore, /node_modules/, /vendor/, /.git/, /.github/"
+          EXCLUDE: ".editorconfig, .gitattributes, .gitignore, /node_modules/, /vendor/, /.git/, /.github/, /.next/"
           SCRIPT_AFTER: |
             ls -al ~/next-web
             docker ps -a
