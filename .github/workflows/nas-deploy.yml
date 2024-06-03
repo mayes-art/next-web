@@ -36,8 +36,8 @@ jobs:
           TARGET: ${{ secrets.REMOTE_TARGET }}
           EXCLUDE: ".editorconfig, .gitattributes, .gitignore, /node_modules/, /vendor/, /.git/, /.github/, /.next/"
           SCRIPT_AFTER: |
-            ls -al ~/next-web
-            docker ps -a
+            cd  ~/service
+            ./web-build.sh
 
 #      - name: GCP Deploy
 #        # You may pin to the exact commit or the version.
